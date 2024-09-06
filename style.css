@@ -1,0 +1,160 @@
+/* 响应式设计 */
+
+/* 当屏幕宽度小于600px时 */
+@media screen and (max-width: 600px) {
+	#calculator {
+		width: 90%; /* 使计算器宽度自适应 */
+		margin: 0 auto; /* 居中显示 */
+	}
+
+	#keyboard {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr); /* 将按钮排列为四列 */
+		grid-gap: 5px; /* 设置按钮之间的间隔 */
+	}
+
+	.operator,
+	.number,
+	.empty {
+		width: 100%; /* 按钮宽度占满一整行 */
+	}
+}
+body{
+	font-family: 'Open Sans',sans-serif;
+	background-color: black;
+	margin: 0; /* 重置默认的body边距 */
+}
+#container{
+	width: 1000px;
+	height: 550px;
+	background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(bgImg.jpg);
+	margin: 20px auto;
+}
+#calculator{
+	width: 640px;
+	height: 520px;
+	background-color: #eaedef;
+	margin: 0 auto;
+	top: 20px;
+	position: relative;
+	border-radius: 5px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#result{
+	height: 120px;
+}
+#history{
+	text-align: right;
+	height: 20px;
+	margin: 0 20px;
+	padding-top: 10px;
+	font-size: 20px;
+	color: #919191;
+}
+#output{
+	text-align: right;
+	height: 60px;
+	margin: 10px -300px;
+	font-size: 30px;
+}
+#output-text{
+	width: 250px;
+	height: 120px;
+	float: left;
+}
+#microphone{
+	height: 30px;
+	width: 30px;
+	float: right;
+	background-image: url(mic.png);
+	background-size: 100% 100%;
+	border-radius: 50%;
+	margin: 20px;
+	margin-top: 45px;
+}
+.record{
+	animation: microphone-animation 1.5s infinite;
+}
+@Keyframes microphone-animation{
+	0%{
+		transform: scale(0.9);
+	}
+	70%{
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(0,148,255,0.4);
+
+	}
+	100%{
+		transform: scale(0.9);
+		box-shadow: 0 0 0 0 rgba(0,148,255,0);
+	}
+}
+.tooltip{
+	width: 200px;
+	font-size: 14px;
+	position: absolute;
+	background-color: #dddddd;
+	color: #636363;
+	padding: 10px;
+	top: 45px;
+	transform: translateX(50px);
+	border-radius: 5px;
+	visibility: hidden;
+}
+.tooltip::before{
+	content: '';
+	position: absolute;
+	border-width: 5px;
+	border-style: solid;
+	border-color:transparent #dddddd transparent transparent;
+	left: 0;
+	margin-left: -10px;
+}
+#output-microphone:hover .tooltip{
+	visibility: visible;
+}
+#keyboard{
+	height: 400px;
+}
+.operator, .number, .empty{
+	width: 50px;
+	height: 50px;
+	margin: 15px;
+	float: left;
+	border-radius: 50%;
+	border-width: 0;
+	font-weight: bold;
+	font-size: 15px;
+}
+.number, .empty{
+	background-color: #eaedef;
+}
+.number, .operator{
+	cursor: pointer;
+}
+.operator:active, .number:active{
+	font-size: 13px;
+}
+.operator:focus, .number:focus, .empty:focus{
+	outline: 0;
+}
+button:nth-child(6){
+	font-size: 20px;
+	background-color: #20b2aa;
+}
+button:nth-child(14){
+	font-size: 20px;
+	background-color: #ffa500;
+}
+button:nth-child(22){
+	font-size: 20px;
+	background-color: #f08080;
+}
+button:nth-child(30){
+	font-size: 20px;
+	background-color: #7d93e0;
+}
+button:nth-child(38){
+	font-size: 20px;
+	background-color: #9477af;
+}
